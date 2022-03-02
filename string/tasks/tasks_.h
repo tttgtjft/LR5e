@@ -12,6 +12,7 @@ void task1_removeNonLetters(char *s);
 
 void task2_removeExtraSpaces(char *s);
 
+
 void task4_replaceDigitsWithSpaces(char *s);
 
 #endif
