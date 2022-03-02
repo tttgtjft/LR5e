@@ -119,6 +119,21 @@
 		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/string_.h">
 			<Option target="str"/>
 		</Unit>
+		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tasks/tasks_.c">
+			<Option target="str"/>
+		</Unit>
+		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tasks/tasks_.h">
+			<Option target="str"/>
+		</Unit>
+		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tests_str_library/tests_str_library_.c">
+			<Option target="str"/>
+		</Unit>
+		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tests_tasks/tests_tasks_.c">
+			<Option target="str"/>
+		</Unit>
+		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tests_tasks/tests_tasks_.h">
+			<Option target="str"/>
+		</Unit>
 		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

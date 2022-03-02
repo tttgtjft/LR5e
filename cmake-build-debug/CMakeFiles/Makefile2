@@ -87,7 +87,7 @@ CMakeFiles/lR5e.dir/all: CMakeFiles/str.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/lR5e.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\cmake-build-debug\CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\cmake-build-debug\CMakeFiles" 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/lR5e.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles/lR5e.dir/rule
@@ -108,12 +108,12 @@ CMakeFiles/lR5e.dir/clean:
 CMakeFiles/str.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\cmake-build-debug\CMakeFiles" --progress-num=3,4 "Built target str"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\cmake-build-debug\CMakeFiles" --progress-num=3,4,5,6,7 "Built target str"
 .PHONY : CMakeFiles/str.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/str.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\cmake-build-debug\CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\cmake-build-debug\CMakeFiles" 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/str.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles/str.dir/rule

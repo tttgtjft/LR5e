@@ -8,11 +8,11 @@ size_t strlen_(char *begin) {
     return end - begin;
 }
 
-char find(char *begin, const char *end, const int ch) {
-    while (begin != end && *begin != '\0')
+char *find(char *begin, const char *end, const int ch) {
+    while (begin != end && *begin != ch)
         begin++;
 
-    return *begin;
+    return begin;
 }
 
 char *findNonSpace(char *begin) {
@@ -58,24 +58,18 @@ char *copy(const char *beginSource, const char *endSource, char *beginDestinatio
 }
 
 char *copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int)){
-    long long fDistance = 0;
     while (*beginSource != '\0' && beginSource != endSource)
-        if (f(*(beginSource++))){
+        if (f(*(beginSource++)))
             memcpy(beginDestination++, beginSource - 1, sizeof(char));
-            fDistance++;
-        }
 
-    return beginDestination + fDistance;
+    return beginDestination;
 }
 
 char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int)){
-    long long fDistance = rbeginSource - rendSource;
     while (rbeginSource != rendSource)
-        if (f(*(rbeginSource--))){
-            memcpy(beginDestination, rbeginSource + 1, sizeof(char));
-            fDistance++;
-        }
+        if (f(*(rbeginSource--)))
+            memcpy(beginDestination++, rbeginSource + 1, sizeof(char));
 
-    return beginDestination + fDistance;
+    return beginDestination;
 }
 

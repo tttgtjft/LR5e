@@ -189,6 +189,78 @@ string/string_.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/string_.c.s
 .PHONY : string/string_.c.s
 
+string/tasks/tasks_.obj: string/tasks/tasks_.c.obj
+.PHONY : string/tasks/tasks_.obj
+
+# target to build an object file
+string/tasks/tasks_.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/tasks/tasks_.c.obj
+.PHONY : string/tasks/tasks_.c.obj
+
+string/tasks/tasks_.i: string/tasks/tasks_.c.i
+.PHONY : string/tasks/tasks_.i
+
+# target to preprocess a source file
+string/tasks/tasks_.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/tasks/tasks_.c.i
+.PHONY : string/tasks/tasks_.c.i
+
+string/tasks/tasks_.s: string/tasks/tasks_.c.s
+.PHONY : string/tasks/tasks_.s
+
+# target to generate assembly for a file
+string/tasks/tasks_.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/tasks/tasks_.c.s
+.PHONY : string/tasks/tasks_.c.s
+
+string/tests_str_library/tests_str_library_.obj: string/tests_str_library/tests_str_library_.c.obj
+.PHONY : string/tests_str_library/tests_str_library_.obj
+
+# target to build an object file
+string/tests_str_library/tests_str_library_.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/tests_str_library/tests_str_library_.c.obj
+.PHONY : string/tests_str_library/tests_str_library_.c.obj
+
+string/tests_str_library/tests_str_library_.i: string/tests_str_library/tests_str_library_.c.i
+.PHONY : string/tests_str_library/tests_str_library_.i
+
+# target to preprocess a source file
+string/tests_str_library/tests_str_library_.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/tests_str_library/tests_str_library_.c.i
+.PHONY : string/tests_str_library/tests_str_library_.c.i
+
+string/tests_str_library/tests_str_library_.s: string/tests_str_library/tests_str_library_.c.s
+.PHONY : string/tests_str_library/tests_str_library_.s
+
+# target to generate assembly for a file
+string/tests_str_library/tests_str_library_.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/tests_str_library/tests_str_library_.c.s
+.PHONY : string/tests_str_library/tests_str_library_.c.s
+
+string/tests_tasks/tests_tasks_.obj: string/tests_tasks/tests_tasks_.c.obj
+.PHONY : string/tests_tasks/tests_tasks_.obj
+
+# target to build an object file
+string/tests_tasks/tests_tasks_.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/tests_tasks/tests_tasks_.c.obj
+.PHONY : string/tests_tasks/tests_tasks_.c.obj
+
+string/tests_tasks/tests_tasks_.i: string/tests_tasks/tests_tasks_.c.i
+.PHONY : string/tests_tasks/tests_tasks_.i
+
+# target to preprocess a source file
+string/tests_tasks/tests_tasks_.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/tests_tasks/tests_tasks_.c.i
+.PHONY : string/tests_tasks/tests_tasks_.c.i
+
+string/tests_tasks/tests_tasks_.s: string/tests_tasks/tests_tasks_.c.s
+.PHONY : string/tests_tasks/tests_tasks_.s
+
+# target to generate assembly for a file
+string/tests_tasks/tests_tasks_.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/tests_tasks/tests_tasks_.c.s
+.PHONY : string/tests_tasks/tests_tasks_.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -205,6 +277,15 @@ help:
 	@echo ... string/string_.obj
 	@echo ... string/string_.i
 	@echo ... string/string_.s
+	@echo ... string/tasks/tasks_.obj
+	@echo ... string/tasks/tasks_.i
+	@echo ... string/tasks/tasks_.s
+	@echo ... string/tests_str_library/tests_str_library_.obj
+	@echo ... string/tests_str_library/tests_str_library_.i
+	@echo ... string/tests_str_library/tests_str_library_.s
+	@echo ... string/tests_tasks/tests_tasks_.obj
+	@echo ... string/tests_tasks/tests_tasks_.i
+	@echo ... string/tests_tasks/tests_tasks_.s
 .PHONY : help
 
 

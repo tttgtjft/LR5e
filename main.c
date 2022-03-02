@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include "string/string_.h"
+#include "string/tests_str_library/tests_str_library_.c"
 
 int main() {
-    char *a = "zxcv";
-
-    printf("%d ", a++);
-    printf("%d", a);
+    test();
 
     return 0;
 }

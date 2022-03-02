@@ -78,17 +78,62 @@ CMakeFiles/str.dir/string/string_.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/str.dir/string/string_.c.s"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\string\string_.c" -o CMakeFiles\str.dir\string\string_.c.s
 
+CMakeFiles/str.dir/string/tests_str_library/tests_str_library_.c.obj: CMakeFiles/str.dir/flags.make
+CMakeFiles/str.dir/string/tests_str_library/tests_str_library_.c.obj: ../string/tests_str_library/tests_str_library_.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/str.dir/string/tests_str_library/tests_str_library_.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\str.dir\string\tests_str_library\tests_str_library_.c.obj -c "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\string\tests_str_library\tests_str_library_.c"
+
+CMakeFiles/str.dir/string/tests_str_library/tests_str_library_.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/str.dir/string/tests_str_library/tests_str_library_.c.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\string\tests_str_library\tests_str_library_.c" > CMakeFiles\str.dir\string\tests_str_library\tests_str_library_.c.i
+
+CMakeFiles/str.dir/string/tests_str_library/tests_str_library_.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/str.dir/string/tests_str_library/tests_str_library_.c.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\string\tests_str_library\tests_str_library_.c" -o CMakeFiles\str.dir\string\tests_str_library\tests_str_library_.c.s
+
+CMakeFiles/str.dir/string/tasks/tasks_.c.obj: CMakeFiles/str.dir/flags.make
+CMakeFiles/str.dir/string/tasks/tasks_.c.obj: ../string/tasks/tasks_.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/str.dir/string/tasks/tasks_.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\str.dir\string\tasks\tasks_.c.obj -c "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\string\tasks\tasks_.c"
+
+CMakeFiles/str.dir/string/tasks/tasks_.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/str.dir/string/tasks/tasks_.c.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\string\tasks\tasks_.c" > CMakeFiles\str.dir\string\tasks\tasks_.c.i
+
+CMakeFiles/str.dir/string/tasks/tasks_.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/str.dir/string/tasks/tasks_.c.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\string\tasks\tasks_.c" -o CMakeFiles\str.dir\string\tasks\tasks_.c.s
+
+CMakeFiles/str.dir/string/tests_tasks/tests_tasks_.c.obj: CMakeFiles/str.dir/flags.make
+CMakeFiles/str.dir/string/tests_tasks/tests_tasks_.c.obj: ../string/tests_tasks/tests_tasks_.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/str.dir/string/tests_tasks/tests_tasks_.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\str.dir\string\tests_tasks\tests_tasks_.c.obj -c "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\string\tests_tasks\tests_tasks_.c"
+
+CMakeFiles/str.dir/string/tests_tasks/tests_tasks_.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/str.dir/string/tests_tasks/tests_tasks_.c.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\string\tests_tasks\tests_tasks_.c" > CMakeFiles\str.dir\string\tests_tasks\tests_tasks_.c.i
+
+CMakeFiles/str.dir/string/tests_tasks/tests_tasks_.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/str.dir/string/tests_tasks/tests_tasks_.c.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\string\tests_tasks\tests_tasks_.c" -o CMakeFiles\str.dir\string\tests_tasks\tests_tasks_.c.s
+
 # Object files for target str
 str_OBJECTS = \
-"CMakeFiles/str.dir/string/string_.c.obj"
+"CMakeFiles/str.dir/string/string_.c.obj" \
+"CMakeFiles/str.dir/string/tests_str_library/tests_str_library_.c.obj" \
+"CMakeFiles/str.dir/string/tasks/tasks_.c.obj" \
+"CMakeFiles/str.dir/string/tests_tasks/tests_tasks_.c.obj"
 
 # External object files for target str
 str_EXTERNAL_OBJECTS =
 
 libstr.a: CMakeFiles/str.dir/string/string_.c.obj
+libstr.a: CMakeFiles/str.dir/string/tests_str_library/tests_str_library_.c.obj
+libstr.a: CMakeFiles/str.dir/string/tasks/tasks_.c.obj
+libstr.a: CMakeFiles/str.dir/string/tests_tasks/tests_tasks_.c.obj
 libstr.a: CMakeFiles/str.dir/build.make
 libstr.a: CMakeFiles/str.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libstr.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\ASUS TUF GAMING\CLionProjects\lR5e\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking C static library libstr.a"
 	$(CMAKE_COMMAND) -P CMakeFiles\str.dir\cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\str.dir\link.txt --verbose=$(VERBOSE)
 

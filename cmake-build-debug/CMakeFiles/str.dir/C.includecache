@@ -6,14 +6,8 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/string_.c
-string_.h
-C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/string_.h
-
 C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/string_.h
 stdlib.h
--
-stdio.h
 -
 stdbool.h
 -
@@ -21,4 +15,10 @@ ctype.h
 -
 memory.h
 -
+
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tests_str_library/tests_str_library_.c
+assert.h
+-
+../string_.h
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/string_.h
 

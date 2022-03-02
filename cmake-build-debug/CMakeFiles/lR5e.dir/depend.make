@@ -3,4 +3,5 @@
 
 CMakeFiles/lR5e.dir/main.c.obj: \
  ../main.c \
- ../string/string_.h
+ ../string/string_.h \
+ ../string/tests_str_library/tests_str_library_.c
