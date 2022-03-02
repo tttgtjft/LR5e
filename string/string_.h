@@ -10,8 +10,8 @@
 #define MAX_N_WORDS_IN_STRING 100
 #define MAX_WORD_SIZE 20
 
-char *_stringSpaces = "                                        ";
-char _stringBuffer[MAX_STRING_SIZE + 1];
+static char _stringSpaces[] = "                                        ";
+static char _stringBuffer[MAX_STRING_SIZE + 1];
 
 size_t strlen_(char *begin);
 

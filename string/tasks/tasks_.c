@@ -56,6 +56,8 @@ void task2_removeExtraSpaces(char *s) {
         *(s++) = *begin;
         begin++;
     }
+
+    *s = '\0';
 }
 
 void task4_replaceDigitsWithSpaces(char *s) {
@@ -64,13 +66,13 @@ void task4_replaceDigitsWithSpaces(char *s) {
     while (*_stringBuffer != '\0') {
         if (isdigit(*_stringBuffer)) {
             int digit = *_stringBuffer % '0';
-            memcpy(s, _stringSpaces, digit);
+            memcpy(s, _stringSpaces++, digit);
             s += --digit;
 
             continue;
         }
 
-        *(s++) = *_stringBuffer;
+        *(s++) = *(_stringBuffer++);
     }
 
     *s = '\0';

@@ -16,9 +16,25 @@ ctype.h
 memory.h
 -
 
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tasks/tasks_.c
+tasks_.h
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tasks/tasks_.h
+
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tasks/tasks_.h
+../string_.h
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/string_.h
+
 C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tests_str_library/tests_str_library_.c
 assert.h
 -
+../string_.h
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/string_.h
+
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tests_tasks/tests_tasks_.c
+assert.h
+-
+../tasks/tasks_.h
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tasks/tasks_.h
 ../string_.h
 C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/string_.h
 

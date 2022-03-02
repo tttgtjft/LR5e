@@ -229,7 +229,7 @@ void test_copyIfReverse() {
     test_copyIfReverse_digit();
 }
 
-void test() {
+void test_str_library() {
     test_strlen();
     test_find();
     test_findNonSpace();

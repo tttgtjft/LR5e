@@ -131,9 +131,6 @@
 		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tests_tasks/tests_tasks_.c">
 			<Option target="str"/>
 		</Unit>
-		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tests_tasks/tests_tasks_.h">
-			<Option target="str"/>
-		</Unit>
 		<Unit filename="C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
