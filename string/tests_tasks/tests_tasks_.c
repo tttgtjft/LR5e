@@ -2,6 +2,7 @@
 #include "../tasks/tasks_.h"
 #include "../string_.h"
 
+#include <stdio.h>
 void test_task1_removeNonLetters_withoutSpace() {
     char s[MAX_STRING_SIZE] = "kurapika";
 
@@ -9,7 +10,7 @@ void test_task1_removeNonLetters_withoutSpace() {
 
     char expectation[MAX_STRING_SIZE] = "kurapika";
 
-    assert(strcmp(s, expectation) == 0);
+    assert(strcmp_(s, expectation) == 0);
 }
 
 void test_task1_removeNonLetters_withSpace() {
@@ -19,7 +20,7 @@ void test_task1_removeNonLetters_withSpace() {
 
     char expectation[MAX_STRING_SIZE] = "kurapika";
 
-    assert(strcmp(s, expectation) == 0);
+    assert(strcmp_(s, expectation) == 0);
 }
 
 void test_task1_removeNonLetters_emptyString() {
@@ -29,7 +30,7 @@ void test_task1_removeNonLetters_emptyString() {
 
     char expectation[MAX_STRING_SIZE] = "";
 
-    assert(strcmp(s, expectation) == 0);
+    assert(strcmp_(s, expectation) == 0);
 }
 
 void test_task1_removeNonLetters_allSpaceSymbols() {
@@ -39,18 +40,15 @@ void test_task1_removeNonLetters_allSpaceSymbols() {
 
     char expectation[MAX_STRING_SIZE] = "";
 
-    assert(strcmp(s, expectation) == 0);
+    assert(strcmp_(s, expectation) == 0);
 }
 
-void test_task2_removeNonLetters() {
+void test_task1_removeNonLetters() {
     test_task1_removeNonLetters_withoutSpace();
     test_task1_removeNonLetters_withSpace();
     test_task1_removeNonLetters_emptyString();
     test_task1_removeNonLetters_allSpaceSymbols();
-
 }
-
-
 
 void test_task2_removeExtraSpaces_stringWithSpaces() {
     char s[MAX_STRING_SIZE] = " k ura pi k a ";
@@ -59,7 +57,7 @@ void test_task2_removeExtraSpaces_stringWithSpaces() {
 
     char expectation[MAX_STRING_SIZE] = " k ura pi k a ";
 
-    assert(strcmp(s, expectation) == 0);
+    assert(strcmp_(s, expectation) == 0);
 }
 
 void test_task2_removeExtraSpaces_stringWithoutSpaces() {
@@ -69,7 +67,7 @@ void test_task2_removeExtraSpaces_stringWithoutSpaces() {
 
     char expectation[MAX_STRING_SIZE] = "kurapika";
 
-    assert(strcmp(s, expectation) == 0);
+    assert(strcmp_(s, expectation) == 0);
 }
 
 void test_task2_removeExtraSpaces_emptyString() {
@@ -79,7 +77,7 @@ void test_task2_removeExtraSpaces_emptyString() {
 
     char expectation[MAX_STRING_SIZE] = "";
 
-    assert(strcmp(s, expectation) == 0);
+    assert(strcmp_(s, expectation) == 0);
 }
 
 void test_task2_removeExtraSpaces_allSpaces() {
@@ -89,7 +87,7 @@ void test_task2_removeExtraSpaces_allSpaces() {
 
     char expectation[MAX_STRING_SIZE] = " ";
 
-    assert(strcmp(s, expectation) == 0);
+    assert(strcmp_(s, expectation) == 0);
 }
 
 void test_task2_removeExtraSpaces() {
@@ -100,7 +98,62 @@ void test_task2_removeExtraSpaces() {
     test_task2_removeExtraSpaces_allSpaces();
 }
 
+void test_task3_reverseLettersOfWordsOfString_emptyString() {
+    char s[MAX_STRING_SIZE] = "";
 
+    task3_reverseLettersOfWordsOfString(s);
+
+    char expectation[MAX_STRING_SIZE] = "";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task3_reverseLettersOfWordsOfString_oneWord() {
+    char *s = "kurapika";
+
+    task3_reverseLettersOfWordsOfString(s);
+    printf("%s", s);
+
+    char expectation[MAX_STRING_SIZE] = "akiparuk";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task3_reverseLettersOfWordsOfString_fewWords() {
+    char *s = "kurapika BEST BOY";
+
+    task3_reverseLettersOfWordsOfString(s);
+
+    char expectation[MAX_STRING_SIZE] = "akiparuk TSEB YOB";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task3_reverseLettersOfWordsOfString() {
+    //test_task3_reverseLettersOfWordsOfString_emptyString();
+    //test_task3_reverseLettersOfWordsOfString_oneWord();
+    //test_task3_reverseLettersOfWordsOfString_fewWords();
+}
+
+void test_task4_replaceDigitsWithSpaces_emptyString() {
+    char s[MAX_STRING_SIZE] = "";
+
+    task4_replaceDigitsWithSpaces(s);
+
+    char expectation[MAX_STRING_SIZE] = "";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task4_replaceDigitsWithSpaces_stringWithoutDigit() {
+    char s[MAX_STRING_SIZE] = "kurapika";
+
+    task4_replaceDigitsWithSpaces(s);
+
+    char expectation[MAX_STRING_SIZE] = "kurapika";
+
+    assert(strcmp_(s, expectation) == 0);
+}
 
 void test_task4_replaceDigitsWithSpaces_stringWithDigits() {
     char s[MAX_STRING_SIZE] = "kur3apik1a";
@@ -109,30 +162,75 @@ void test_task4_replaceDigitsWithSpaces_stringWithDigits() {
 
     char expectation[MAX_STRING_SIZE] = "kur   apik a";
 
-    assert(strcmp(s, expectation) == 0);
-}
-
-void test_task4_replaceDigitsWithSpaces_stringWithoutDigit() {
-
+    assert(strcmp_(s, expectation) == 0);
 }
 
 void test_task4_replaceDigitsWithSpaces_allDigit() {
+    char s[MAX_STRING_SIZE] = "42";
 
-}
+    task4_replaceDigitsWithSpaces(s);
 
-void test_task4_replaceDigitsWithSpaces_emptyString() {
+    char expectation[MAX_STRING_SIZE] = "      ";
 
+    assert(strcmp_(s, expectation) == 0);
 }
 
 void test_task4_replaceDigitsWithSpaces() {
-    test_task4_replaceDigitsWithSpaces_stringWithDigits();
-    test_task4_replaceDigitsWithSpaces_stringWithoutDigit();
-    test_task4_replaceDigitsWithSpaces_allDigit();
     test_task4_replaceDigitsWithSpaces_emptyString();
+    test_task4_replaceDigitsWithSpaces_stringWithoutDigit();
+    test_task4_replaceDigitsWithSpaces_stringWithDigits();
+    test_task4_replaceDigitsWithSpaces_allDigit();
+}
+
+
+
+void test_task5_replace_emptyString() {
+    char w1[MAX_STRING_SIZE] = "kurapika";
+    char w2[MAX_STRING_SIZE] = "emo boy";
+
+    char s[MAX_STRING_SIZE] = "";
+
+    task5_replace(s, w1, w2);
+
+    char expectation[MAX_STRING_SIZE] = "";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task5_replace_oneLetter() {
+    char s[MAX_STRING_SIZE] = "kurapi ka";
+    char w1[MAX_STRING_SIZE] = "ka";
+    char w2[MAX_STRING_SIZE] = "a";
+
+    task5_replace(s, w1, w2);
+
+    char expectation[MAX_STRING_SIZE] = "kurapi a ";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task5_replace_oneWord() {
+    char s[MAX_STRING_SIZE] = "kur a pik a";
+    char w1[MAX_STRING_SIZE] = "a";
+    char w2[MAX_STRING_SIZE] = "pico";
+
+    task5_replace(s, w1, w2);
+
+    char expectation[MAX_STRING_SIZE] = "kur pico pik pico";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task5_replace() {
+    test_task5_replace_emptyString();
+    test_task5_replace_oneLetter();
+    test_task5_replace_oneWord();
 }
 
 void test_tasks() {
-    test_task2_removeNonLetters();
+    test_task1_removeNonLetters();
     test_task2_removeExtraSpaces();
+    //test_reverseLettersOfWordsOfString();
     test_task4_replaceDigitsWithSpaces();
+    test_task5_replace();
 }

@@ -149,21 +149,21 @@ void test_strcmp_stringEqual() {
     char *s1 = "kurapika";
     char *s2 = "kurapika";
 
-    assert(strcmp(s1, s2) == 0);
+    assert(strcmp_(s1, s2) == 0);
 }
 
 void test_strcmp_stringNonEqual_firstGreaterSecond() {
     char *s1 = "death";
     char *s2 = "life";
 
-    assert(strcmp(s1, s2) == 'd' - 'l');
+    assert(strcmp_(s1, s2) == 'd' - 'l');
 }
 
 void test_strcmp_stringNonEqual_secondGreaterFirst() {
     char *s1 = "kurapika";
     char *s2 = "BEST BOY";
 
-    assert(strcmp(s1, s2) == 'k' - 'B');
+    assert(strcmp_(s1, s2) == 'k' - 'B');
 }
 
 void test_strcmp() {
@@ -180,7 +180,7 @@ void test_copy_fullString() {
 
     char expectation[MAX_STRING_SIZE] = "kurapika";
 
-    assert(strcmp(s2, expectation) == 0 && dst == &s2[strlen_(s2)]);
+    assert(strcmp_(s2, expectation) == 0 && dst == &s2[strlen_(s2)]);
 }
 
 void test_copy_partString() {
@@ -191,7 +191,7 @@ void test_copy_partString() {
 
     char expectation[MAX_STRING_SIZE] = "pikapico";
 
-    assert(strcmp(s2, expectation) == 0 && dst == &s2[strlen_(s2) - 4]);
+    assert(strcmp_(s2, expectation) == 0 && dst == &s2[strlen_(s2) - 4]);
 }
 
 void test_copy() {
@@ -207,7 +207,7 @@ void test_copyIf_digit() {
 
     char expectation[MAX_STRING_SIZE] = "13pico";
 
-    assert(strcmp(s2, expectation) == 0 && dst == &s2[strlen_(s2) - 4]);
+    assert(strcmp_(s2, expectation) == 0 && dst == &s2[strlen_(s2) - 4]);
 }
 
 void test_copyIf() {
@@ -222,7 +222,7 @@ void test_copyIfReverse_digit() {
 
     char expectation[MAX_STRING_SIZE] = "3182pico";
 
-    assert(strcmp(s2, expectation) == 0 && dst == &s2[strlen_(s2) - 4]);
+    assert(strcmp_(s2, expectation) == 0 && dst == &s2[strlen_(s2) - 4]);
 }
 
 void test_copyIfReverse() {

@@ -7,15 +7,17 @@
 #IncludeRegexTransform: 
 
 C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/main.c
-stdio.h
--
 string/string_.h
 C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/string_.h
 string/tests_str_library/tests_str_library_.c
 C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tests_str_library/tests_str_library_.c
+string/tests_tasks/tests_tasks_.c
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tests_tasks/tests_tasks_.c
 
 C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/string_.h
 stdlib.h
+-
+stdio.h
 -
 stdbool.h
 -
@@ -24,9 +26,23 @@ ctype.h
 memory.h
 -
 
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tasks/tasks_.h
+../string_.h
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/string_.h
+
 C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tests_str_library/tests_str_library_.c
 assert.h
 -
 ../string_.h
 C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/string_.h
+
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tests_tasks/tests_tasks_.c
+assert.h
+-
+../tasks/tasks_.h
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/tasks/tasks_.h
+../string_.h
+C:/Users/ASUS TUF GAMING/CLionProjects/lR5e/string/string_.h
+stdio.h
+-
 
