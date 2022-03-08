@@ -298,6 +298,50 @@ void task11_printWordBeforeFirstWordWithA(char *s){
         printf("there is no such word in this string");
 }
 
-//------------------TASK1------------------//
+//------------------TASK12------------------//
+
+bool isWordInString(char *source, wordDescriptor word){
+    char *beginSearch = source;
+    wordDescriptor wordString;
+
+    while (getWord(beginSearch, &wordString)){
+        size_t wordStringSize = wordString.begin - wordString.end;
+        size_t wordSize = word.begin - word.end;
+        if (wordStringSize == wordSize && memcmp(word.begin, wordString.begin, wordSize) == 0)
+            return true;
+
+        beginSearch = wordString.end;
+    }
+
+    return false;
+}
+
+wordDescriptor task12_getLastWordInFirstStringFromSecondString(char *s1, char *s2){
+    char *beginSearch = s1;
+    wordDescriptor word;
+
+    while (getWord(beginSearch, &word)){
+        if (isWordInString(s2, word))
+            return word;
+
+        beginSearch = word.end;
+    }
+
+    return (wordDescriptor){NULL, NULL};
+}
+
+//------------------TASK13------------------//
+
+//------------------TASK14------------------//
+
+//------------------TASK15------------------//
+
+//------------------TASK16------------------//
+
+//------------------TASK17------------------//
+
+//------------------TASK18------------------//
+
+//------------------TASK19------------------//
 
 
