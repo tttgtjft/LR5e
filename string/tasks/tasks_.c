@@ -300,14 +300,14 @@ void task11_printWordBeforeFirstWordWithA(char *s){
 
 //------------------TASK12------------------//
 
-bool isWordInString(char *source, wordDescriptor word){
+bool isWordInString(char *source, char *w1Begin, char *w1End) {
     char *beginSearch = source;
     wordDescriptor wordString;
 
-    while (getWord(beginSearch, &wordString)){
-        size_t wordStringSize = wordString.begin - wordString.end;
-        size_t wordSize = word.begin - word.end;
-        if (wordStringSize == wordSize && memcmp(word.begin, wordString.begin, wordSize) == 0)
+    while (getWord(beginSearch, &wordString)) {
+        size_t wordStringSize = wordString.end - wordString.begin;
+        size_t wordSize = w1End - w1Begin;
+        if (wordStringSize == wordSize && memcmp(w1Begin, wordString.begin, wordSize) == 0)
             return true;
 
         beginSearch = wordString.end;
@@ -316,29 +316,101 @@ bool isWordInString(char *source, wordDescriptor word){
     return false;
 }
 
-wordDescriptor task12_getLastWordInFirstStringFromSecondString(char *s1, char *s2){
-    char *beginSearch = s1;
+wordDescriptor task12_getLastWordInFirstStringFromSecondString(char *s1, char *s2) {
+    char *beginSearch = s1 + strlen_(s1) - 1;
     wordDescriptor word;
 
-    while (getWord(beginSearch, &word)){
-        if (isWordInString(s2, word))
+    while (getWordReverse(beginSearch, s1 - 1, &word)) {
+        if (isWordInString(s2, word.end + 1, word.begin + 1)) {
+            char *t = word.begin;
+            word.begin = word.end + 1;
+            word.end = t + 1;
             return word;
+        }
 
         beginSearch = word.end;
     }
 
-    return (wordDescriptor){NULL, NULL};
+    return (wordDescriptor) {NULL, NULL};
 }
 
 //------------------TASK13------------------//
 
+bool task13_isEqualWordsInString(char *source) {
+    char *beginSearch = source;
+    wordDescriptor word;
+
+    while (getWord(beginSearch, &word)) {
+        beginSearch = word.end;
+
+        if (isWordInString(beginSearch, word.begin, word.end))
+            return true;
+    }
+
+    return false;
+}
+
 //------------------TASK14------------------//
+
+int compare_char(const void *a, const void *b) {
+    char arg1 = *(const char *)a;
+    char arg2 = *(const char *)b;
+    if (arg1 < arg2) return -1;
+    if (arg1 > arg2) return 1;
+    return 0;
+}
+
+bool task14_isLettersOfWordsInStringEqual(char *source){
+    memcpy(_stringBuffer, source, strlen_(source) + 1);
+
+    char *beginSearch = _stringBuffer;
+    wordDescriptor word;
+
+    while (getWord(beginSearch, &word)){
+        qsort(word.begin, word.end - word.begin, sizeof(char), compare_char);
+        beginSearch = word.end;
+    }
+
+    return task13_isEqualWordsInString(_stringBuffer);
+}
 
 //------------------TASK15------------------//
 
+char *task15_getStringFromWordsWhichDifferentFromLastWord(char *source){
+    char *beginSearch = source + strlen_(source) - 1;
+    wordDescriptor lastWord;
+
+    if (!getWordReverse(beginSearch, source - 1, &lastWord))
+        return " \0";
+    size_t lastWordSize = lastWord.begin - lastWord.end;
+
+    beginSearch = source;
+    wordDescriptor word;
+
+    memcpy(_stringBuffer, _stringSpaces, MAX_STRING_SIZE);
+    char *endStringBuffer = _stringBuffer - 1;
+    while (getWord(beginSearch, &word)){
+        size_t wordSize = word.end - word.begin;
+        if (wordSize != lastWordSize || memcmp(word.begin, lastWord.end + 1, wordSize) == 0)
+            endStringBuffer = copy(word.begin, word.end, endStringBuffer + 1);
+
+        beginSearch = word.end;
+    }
+
+    *(endStringBuffer + (endStringBuffer == _stringBuffer - 1)) = '\0';
+
+    return _stringBuffer;
+}
+
 //------------------TASK16------------------//
 
+wordDescriptor task16_getLastWordInFirstStringFromSecondString(char *s1, char *s2){
+    return task12_getLastWordInFirstStringFromSecondString(s1, s2);
+}
+
 //------------------TASK17------------------//
+
+
 
 //------------------TASK18------------------//
 

@@ -13,5 +13,6 @@ CMakeFiles/str.dir/string/tests_str_library/tests_str_library_.c.obj: \
  ../string/tests_str_library/tests_str_library_.c
 CMakeFiles/str.dir/string/tests_tasks/tests_tasks_.c.obj: \
  ../string/string_.h \
+ ../string/tasks/tasks_.c \
  ../string/tasks/tasks_.h \
  ../string/tests_tasks/tests_tasks_.c

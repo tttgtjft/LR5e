@@ -1,6 +1,7 @@
 #include <assert.h>
 #include "../tasks/tasks_.h"
 #include "../string_.h"
+#include "../tasks/tasks_.c"
 
 #include <stdio.h>
 void test_task1_removeNonLetters_withoutSpace() {
@@ -386,6 +387,62 @@ void test_task10_reverseWordsOfString_fewWord() {
     assert(strcmp_(s, expectation) == 0);
 }
 
+#define EMPTY_STRING 0
+#define NOT_FOUND_A_WORD_WITH_A 1
+#define FIRST_WORD_WITH_A 2
+#define WORD_FOUND 3
+
+int task11_getWordBeforeFirstWordWithA(char *s) {
+    char *beginSearch = s;
+    wordDescriptor word;
+
+    if (!getWord(beginSearch, &word))
+        return EMPTY_STRING;
+    else if (isWordWithA(word)) {
+        return FIRST_WORD_WITH_A;
+    }
+    beginSearch = word.end;
+
+    while (getWord(beginSearch, &word)) {
+        if (isWordWithA(word))
+            return WORD_FOUND;
+        beginSearch = word.end;
+    }
+
+    return NOT_FOUND_A_WORD_WITH_A;
+}
+
+void test_task11_getWordBeforeFirstWordWithA_emptyString() {
+    char s[MAX_STRING_SIZE] = "";
+
+    assert(task11_getWordBeforeFirstWordWithA(s) == EMPTY_STRING);
+}
+
+void test_task11_getWordBeforeFirstWordWithA_noWordWithA() {
+    char s[MAX_STRING_SIZE] = "kurpik kurut best boy";
+
+    assert(task11_getWordBeforeFirstWordWithA(s) == NOT_FOUND_A_WORD_WITH_A);
+}
+
+void test_task11_getWordBeforeFirstWordWithA_firstWordWithA() {
+    char s[MAX_STRING_SIZE] = "kurapika kuruta best boy";
+
+    assert(task11_getWordBeforeFirstWordWithA(s) == FIRST_WORD_WITH_A);
+}
+
+void test_task11_getWordBeforeFirstWordWithA_wordWithA() {
+    char s[MAX_STRING_SIZE] = "kurpik kuruta best boy";
+
+    assert(task11_getWordBeforeFirstWordWithA(s) == WORD_FOUND);
+}
+
+void test_task11_getWordBeforeFirstWordWithA() {
+    test_task11_getWordBeforeFirstWordWithA_emptyString();
+    test_task11_getWordBeforeFirstWordWithA_noWordWithA();
+    test_task11_getWordBeforeFirstWordWithA_firstWordWithA();
+    test_task11_getWordBeforeFirstWordWithA_wordWithA();
+}
+
 void test_task10_reverseWordsOfString() {
     test_task10_reverseWordsOfString_emptyString();
     test_task10_reverseWordsOfString_oneWord();
@@ -403,4 +460,5 @@ void test_tasks() {
     test_task8_getCountOfWordsPalindromes();
     test_task9_getStringWithAlternatingWords();
     test_task10_reverseWordsOfString();
+    test_task11_getWordBeforeFirstWordWithA();
 }

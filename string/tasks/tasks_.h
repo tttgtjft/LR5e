@@ -30,4 +30,12 @@ void task10_reverseWordsOfString(char *source);
 
 void task11_printWordBeforeFirstWordWithA(char *s);
 
+wordDescriptor task12_getLastWordInFirstStringFromSecondString(char *s1, char *s2);
+
+bool task13_isEqualWordsInString(char *source);
+
+bool task14_isLettersOfWordsInStringEqual(char *source);
+
+char *task15_getStringFromWordsWhichDifferentFromLastWord(char *source);
+
 #endif
