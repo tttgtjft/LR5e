@@ -58,7 +58,7 @@ char *copy(const char *beginSource, const char *endSource, char *beginDestinatio
 // записывает по адресу beginDestination
 // фрагмент памяти, начиная с адреса rbeginSource до rendSource
 // Возвращает указатель на следующий слева свободный фрагмент памяти в destination
-char* copyReverse(char *rbeginSource, const char *rendSource, char *beginDestination);
+char *copyReverse(char *rbeginSource, const char *rendSource, char *beginDestination);
 
 // записывает по адресу
 // beginDestination элементы из фрагмента памяти начиная с beginSource

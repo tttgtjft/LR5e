@@ -26,6 +26,8 @@ int task8_getCountOfWordsPalindromes(char *source);
 
 char *task9_getStringWithAlternatingWords(char *ch1, char *ch2);
 
-void task4_replaceDigitsWithSpaces(char *s);
+void task10_reverseWordsOfString(char *source);
+
+void task11_printWordBeforeFirstWordWithA(char *s);
 
 #endif

@@ -34,11 +34,11 @@ void task2_removeExtraSpaces(char *s) {
 bool getWord(char *beginSearch, wordDescriptor *word) {
     word->begin = findNonSpace(beginSearch);
     if (*word->begin == '\0')
-        return 0;
+        return false;
 
     word->end = findSpace(word->begin);
 
-    return 1;
+    return true;
 }
 
 void digitToStart(wordDescriptor word) {
@@ -60,22 +60,21 @@ void digitToStartInWordsOfString(char *s) {
 
 bool getWordReverse(char *rbegin, char *rend, wordDescriptor *word) {
     word->begin = findNonSpaceReverse(rbegin, rend);
-    if (word->begin == rend)
-        return 0;
+    if (word->begin <= rend)
+        return false;
 
     word->end = findSpaceReverse(word->begin, rend);
 
-    return 1;
+    return true;
 }
 
 void reverseLettersOfWords(wordDescriptor word) {
-    char *endStringBuffer = copyReverse(word.begin, word.end, _stringBuffer);
-    char *recPosition = word.end + 1;
-    memcpy(recPosition, _stringBuffer, endStringBuffer - _stringBuffer);
+    char *endStringBuffer = copy(word.end + 1, word.begin + 1, _stringBuffer);
+    copyIfReverse(endStringBuffer - 1, _stringBuffer - 1, word.end + 1, isgraph);
 }
 
 void task3_reverseLettersOfWordsOfString(char *s) {
-    char *beginSearch = &s[strlen_(s)];
+    char *beginSearch = &s[strlen_(s) + 1];
     wordDescriptor word;
     while (getWordReverse(beginSearch, s - 1, &word)) {
         reverseLettersOfWords(word);
@@ -199,6 +198,7 @@ void task7_printWordsOfStringReverse(char *source){
 //------------------TASK8------------------//
 
 bool isWordPalindrome(wordDescriptor word){
+    word.end--;
     for (; word.begin < word.end; word.begin++, word.end--)
         if (*word.begin != *word.end)
             return false;
@@ -223,41 +223,80 @@ int task8_getCountOfWordsPalindromes(char *source){
 
 //------------------TASK9------------------//
 
-char *task9_getStringWithAlternatingWords(char *ch1, char *ch2){
+char *task9_getStringWithAlternatingWords(char *ch1, char *ch2) {
+    memcpy(_stringBuffer, _stringSpaces, MAX_STRING_SIZE);
     char *beginSearch1 = ch1, *beginSearch2 = ch2;
     char *endStr = _stringBuffer - 1;
+
     wordDescriptor word1, word2;
     bool isW1Found, isW2Found;
 
     while ((isW1Found = getWord(beginSearch1, &word1)),
             (isW2Found = getWord(beginSearch2, &word2)),
-            isW1Found || isW2Found){
-                if (isW1Found && isW2Found){
-                    endStr = copy(word1.begin, word1.end, endStr + 1);
-                    endStr = copy(word2.begin, word2.end, endStr + 1);
-                }
-                else if (isW1Found)
-                    endStr = copy(word1.begin, word2.end, endStr + 1);
-                else
-                    endStr = copy(word2.begin, word2.end, endStr + 1);
+            isW1Found || isW2Found) {
+        if (isW1Found) {
+            endStr = copy(word1.begin, word1.end, endStr + 1);
+            beginSearch1 = word1.end;
+        }
+        if (isW2Found) {
+            endStr = copy(word2.begin, word2.end, endStr + 1);
+            beginSearch2 = word2.end;
+        }
     }
 
-    *endStr = '\0';
+    *(endStr + (endStr == _stringBuffer - 1)) = '\0';
+
     return _stringBuffer;
 }
 
 //------------------TASK10------------------//
 
-void reverseWordsOfString(char *source){
-    copyReverse(&source[strlen_(source) + 1], source - 1, _stringBuffer);
-
-    char *beginSearch = _stringBuffer;
-    wordDescriptor word;
-
-
+void task10_reverseWordsOfString(char *source){
+    size_t sourceLen = strlen_(source);
+    copyReverse(source + sourceLen - 1, source - 1, _stringBuffer);
+    memcpy(source, _stringBuffer, sourceLen);
+    task3_reverseLettersOfWordsOfString(source);
 }
 
-//------------------TASK1------------------//
+//------------------TASK11------------------//
+
+bool isWordWithA(wordDescriptor word){
+    for (; word.begin < word.end; word.begin++)
+        if (*word.begin == 'a')
+            return true;
+
+    return false;
+}
+
+void printWord(wordDescriptor word){
+    for (; word.begin < word.end; word.begin++)
+        printf("%c", *word.begin);
+
+    printf("\n");
+}
+
+void task11_printWordBeforeFirstWordWithA(char *s){
+    char *beginSearch = s;
+    wordDescriptor word;
+
+    if (!getWord(beginSearch, &word))
+        printf("there is no such word in this string");
+    wordDescriptor previousWord = word;
+
+    bool isAinString = false;
+    while (getWord(beginSearch, &word)){
+        if (isWordWithA(word)){
+            printWord(previousWord);
+            isAinString = true;
+            break;
+        }
+
+        previousWord = word;
+    }
+
+    if (!isAinString)
+        printf("there is no such word in this string");
+}
 
 //------------------TASK1------------------//
 
