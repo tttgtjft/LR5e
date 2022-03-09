@@ -3,7 +3,6 @@
 #include "../string_.h"
 #include "../tasks/tasks_.c"
 
-#include <stdio.h>
 void test_task1_removeNonLetters_withoutSpace() {
     char s[MAX_STRING_SIZE] = "kurapika";
 
@@ -181,8 +180,6 @@ void test_task4_replaceDigitsWithSpaces() {
     test_task4_replaceDigitsWithSpaces_stringWithDigits();
     test_task4_replaceDigitsWithSpaces_allDigit();
 }
-
-
 
 void test_task5_replace_emptyString() {
     char w1[MAX_STRING_SIZE] = "kurapika";
@@ -512,7 +509,6 @@ void test_task12_getLastWordInFirstStringFromSecondString() {
     test_task12_getLastWordInFirstStringFromSecondString_fewWordsMatches();
 }
 
-
 void test_task13_isEqualWordsInString_emptyString() {
     char s[MAX_STRING_SIZE] = "";
 
@@ -543,7 +539,6 @@ void test_task13_isEqualWordsInString() {
     test_task13_isEqualWordsInString_equalWords();
 }
 
-
 void test_task14_isLettersOfWordsInStringEqual_emptyString() {
     char s[MAX_STRING_SIZE] = "";
 
@@ -567,7 +562,6 @@ void test_task14_isLettersOfWordsInStringEqual() {
     test_task14_isLettersOfWordsInStringEqual_noLettersOfWordsEqual();
     test_task14_isLettersOfWordsInStringEqual_letterOfWordsEqual();
 }
-
 
 void test_task15_getStringFromWordsWhichDifferentFromLastWord_emptyString() {
     char s1[MAX_STRING_SIZE] = "";
