@@ -65,17 +65,23 @@ char *copyReverse(char *rbeginSource, const char *rendSource, char *beginDestina
 }
 
 char *copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int)) {
-    while (*beginSource != '\0' && beginSource != endSource)
-        if (f(*(beginSource++)))
-            *(beginDestination++) = *(beginSource - 1);
+    while (*beginSource != '\0' && beginSource != endSource){
+        if (f(*(beginSource)))
+            *(beginDestination++) = *(beginSource);
+
+        beginSource++;
+    }
 
     return beginDestination;
 }
 
 char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int)) {
-    while (rbeginSource != rendSource)
-        if (f(*(rbeginSource--)))
-            *(beginDestination++) = *(rbeginSource + 1);
+    while (rbeginSource != rendSource){
+        if (f(*(rbeginSource)))
+            *(beginDestination++) = *(rbeginSource);
+
+        rbeginSource--;
+    }
 
     return beginDestination;
 }

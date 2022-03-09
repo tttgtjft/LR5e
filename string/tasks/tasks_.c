@@ -17,13 +17,12 @@ void task1_removeNonLetters(char *s) {
 void task2_removeExtraSpaces(char *s) {
     char *begin = ++s;
     while (*begin != '\0') {
-        if (isspace(*begin) && isspace(*(s - 1))) {
+        if (isspace(*begin) && isspace(*(s - 1)))
             begin++;
-            continue;
+        else{
+            *(s++) = *begin;
+            begin++;
         }
-
-        *(s++) = *begin;
-        begin++;
     }
 
     *s = '\0';
@@ -70,11 +69,11 @@ bool getWordReverse(char *rbegin, char *rend, wordDescriptor *word) {
 
 void reverseLettersOfWords(wordDescriptor word) {
     char *endStringBuffer = copy(word.end + 1, word.begin + 1, _stringBuffer);
-    copyIfReverse(endStringBuffer - 1, _stringBuffer - 1, word.end + 1, isgraph);
+    copyReverse(endStringBuffer - 1, _stringBuffer - 1, word.end + 1);
 }
 
 void task3_reverseLettersOfWordsOfString(char *s) {
-    char *beginSearch = &s[strlen_(s) + 1];
+    char *beginSearch = &s[strlen_(s) - 1];
     wordDescriptor word;
     while (getWordReverse(beginSearch, s - 1, &word)) {
         reverseLettersOfWords(word);
