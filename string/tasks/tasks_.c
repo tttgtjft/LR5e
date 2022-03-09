@@ -160,7 +160,7 @@ bool areWordsLexicographicallyOrdered(wordDescriptor w1, wordDescriptor w2) {
     return true;
 }
 
-bool task6_areWordsOfStringLexicographicallyOrdered(char *source){
+bool task6_areWordsOfStringLexicographicallyOrdered(char *source) {
     char *beginSearch = source;
     wordDescriptor word1;
     wordDescriptor word2;
@@ -169,7 +169,7 @@ bool task6_areWordsOfStringLexicographicallyOrdered(char *source){
         return true;
     beginSearch = word1.end;
 
-    while (getWord(beginSearch, &word2)){
+    while (getWord(beginSearch, &word2)) {
         if (!areWordsLexicographicallyOrdered(word1, word2))
             return false;
 
@@ -182,10 +182,10 @@ bool task6_areWordsOfStringLexicographicallyOrdered(char *source){
 
 //------------------TASK7------------------//
 
-void task7_printWordsOfStringReverse(char *source){
+void task7_printWordsOfStringReverse(char *source) {
     char *beginSearch = &source[strlen_(source)];
     wordDescriptor word;
-    while (getWordReverse(beginSearch, source, &word)){
+    while (getWordReverse(beginSearch, source, &word)) {
         beginSearch = word.end;
 
         for (; word.end + 1 <= word.begin; word.end++)
@@ -197,7 +197,7 @@ void task7_printWordsOfStringReverse(char *source){
 
 //------------------TASK8------------------//
 
-bool isWordPalindrome(wordDescriptor word){
+bool isWordPalindrome(wordDescriptor word) {
     word.end--;
     for (; word.begin < word.end; word.begin++, word.end--)
         if (*word.begin != *word.end)
@@ -206,12 +206,12 @@ bool isWordPalindrome(wordDescriptor word){
     return true;
 }
 
-int task8_getCountOfWordsPalindromes(char *source){
+int task8_getCountOfWordsPalindromes(char *source) {
     char *beginSearch = source;
     wordDescriptor word;
 
     int counterWordsPalindrome = 0;
-    while (getWord(beginSearch, &word)){
+    while (getWord(beginSearch, &word)) {
         if (isWordPalindrome(word))
             counterWordsPalindrome++;
 
@@ -251,7 +251,7 @@ char *task9_getStringWithAlternatingWords(char *ch1, char *ch2) {
 
 //------------------TASK10------------------//
 
-void task10_reverseWordsOfString(char *source){
+void task10_reverseWordsOfString(char *source) {
     size_t sourceLen = strlen_(source);
     copyReverse(source + sourceLen - 1, source - 1, _stringBuffer);
     memcpy(source, _stringBuffer, sourceLen);
@@ -260,7 +260,7 @@ void task10_reverseWordsOfString(char *source){
 
 //------------------TASK11------------------//
 
-bool isWordWithA(wordDescriptor word){
+bool isWordWithA(wordDescriptor word) {
     for (; word.begin < word.end; word.begin++)
         if (*word.begin == 'a')
             return true;
@@ -268,14 +268,14 @@ bool isWordWithA(wordDescriptor word){
     return false;
 }
 
-void printWord(wordDescriptor word){
+void printWord(wordDescriptor word) {
     for (; word.begin < word.end; word.begin++)
         printf("%c", *word.begin);
 
     printf("\n");
 }
 
-void task11_printWordBeforeFirstWordWithA(char *s){
+void task11_printWordBeforeFirstWordWithA(char *s) {
     char *beginSearch = s;
     wordDescriptor word;
 
@@ -284,8 +284,8 @@ void task11_printWordBeforeFirstWordWithA(char *s){
     wordDescriptor previousWord = word;
 
     bool isAinString = false;
-    while (getWord(beginSearch, &word)){
-        if (isWordWithA(word)){
+    while (getWord(beginSearch, &word)) {
+        if (isWordWithA(word)) {
             printWord(previousWord);
             isAinString = true;
             break;
@@ -353,20 +353,20 @@ bool task13_isEqualWordsInString(char *source) {
 //------------------TASK14------------------//
 
 int compare_char(const void *a, const void *b) {
-    char arg1 = *(const char *)a;
-    char arg2 = *(const char *)b;
+    char arg1 = *(const char *) a;
+    char arg2 = *(const char *) b;
     if (arg1 < arg2) return -1;
     if (arg1 > arg2) return 1;
     return 0;
 }
 
-bool task14_isLettersOfWordsInStringEqual(char *source){
+bool task14_isLettersOfWordsInStringEqual(char *source) {
     memcpy(_stringBuffer, source, strlen_(source) + 1);
 
     char *beginSearch = _stringBuffer;
     wordDescriptor word;
 
-    while (getWord(beginSearch, &word)){
+    while (getWord(beginSearch, &word)) {
         qsort(word.begin, word.end - word.begin, sizeof(char), compare_char);
         beginSearch = word.end;
     }
@@ -376,12 +376,12 @@ bool task14_isLettersOfWordsInStringEqual(char *source){
 
 //------------------TASK15------------------//
 
-char *task15_getStringFromWordsWhichDifferentFromLastWord(char *source){
+char *task15_getStringFromWordsWhichDifferentFromLastWord(char *source) {
     char *beginSearch = source + strlen_(source) - 1;
     wordDescriptor lastWord;
 
     if (!getWordReverse(beginSearch, source - 1, &lastWord))
-        return " \0";
+        return "\0";
     size_t lastWordSize = lastWord.begin - lastWord.end;
 
     beginSearch = source;
@@ -389,9 +389,9 @@ char *task15_getStringFromWordsWhichDifferentFromLastWord(char *source){
 
     memcpy(_stringBuffer, _stringSpaces, MAX_STRING_SIZE);
     char *endStringBuffer = _stringBuffer - 1;
-    while (getWord(beginSearch, &word)){
+    while (getWord(beginSearch, &word)) {
         size_t wordSize = word.end - word.begin;
-        if (wordSize != lastWordSize || memcmp(word.begin, lastWord.end + 1, wordSize) == 0)
+        if (wordSize != lastWordSize || memcmp(word.begin, lastWord.end + 1, wordSize) != 0)
             endStringBuffer = copy(word.begin, word.end, endStringBuffer + 1);
 
         beginSearch = word.end;
@@ -404,15 +404,77 @@ char *task15_getStringFromWordsWhichDifferentFromLastWord(char *source){
 
 //------------------TASK16------------------//
 
-wordDescriptor task16_getLastWordInFirstStringFromSecondString(char *s1, char *s2){
+wordDescriptor task16_getLastWordInFirstStringFromSecondString(char *s1, char *s2) {
     return task12_getLastWordInFirstStringFromSecondString(s1, s2);
 }
 
 //------------------TASK17------------------//
 
+void task17_deleteWordsPalindromesFromString(char *source) {
+    memcpy(_stringBuffer, source, strlen_(source));
+    char *beginSearch = _stringBuffer;
+    wordDescriptor word;
 
+    memcpy(source, _stringSpaces, MAX_STRING_SIZE);
+    char *endSource = source - 1;
+
+    while (getWord(beginSearch, &word)) {
+        if (!isWordPalindrome(word))
+            endSource = copy(word.begin, word.end, endSource + 1);
+
+        beginSearch = word.end;
+    }
+
+    *(endSource + (endSource == source - 1)) = '\0';
+}
 
 //------------------TASK18------------------//
+
+int getCountOfWordsOfString(char *source) {
+    char *beginSearch = source;
+    wordDescriptor word;
+
+    int counterWords = 0;
+    while (getWord(beginSearch, &word)) {
+        counterWords++;
+
+        beginSearch = word.end;
+    }
+
+    return counterWords;
+}
+
+void addToLowerStringLastWordsOfHigherString_(char *s1, size_t s1Size, size_t s1CountWords, char *s2, size_t s2Size, size_t s2CountWord){
+    s1[s1Size] = ' ';
+    char *beginSearch = s2 + s2Size;
+    wordDescriptor word;
+
+    char *endStr = s1 + s1Size;
+    while (getWordReverse(beginSearch, s2 - 1, &word)) {
+        endStr = copy(word.end + 1, word.begin + 1, endStr + 1);
+
+        if (--s2CountWord == s1CountWords)
+            break;
+
+        beginSearch = word.end;
+
+    }
+
+    *(endStr) = '\0';
+}
+
+void task18_addToLowerStringLastWordsOfHigherString(char *s1, char *s2) {
+    size_t s1Size = strlen_(s1);
+    size_t s2Size = strlen_(s2);
+
+    size_t s1CountWords = getCountOfWordsOfString(s1);
+    size_t s2CountWords = getCountOfWordsOfString(s2);
+
+    if (s1CountWords < s2CountWords)
+        addToLowerStringLastWordsOfHigherString_(s1, s1Size, s1CountWords, s2, s2Size, s2CountWords);
+    else if (s2CountWords < s1CountWords)
+        addToLowerStringLastWordsOfHigherString_(s2, s2Size, s2CountWords, s1, s1Size, s1CountWords);
+}
 
 //------------------TASK19------------------//
 

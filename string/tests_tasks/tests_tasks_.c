@@ -387,6 +387,13 @@ void test_task10_reverseWordsOfString_fewWord() {
     assert(strcmp_(s, expectation) == 0);
 }
 
+void test_task10_reverseWordsOfString() {
+    test_task10_reverseWordsOfString_emptyString();
+    test_task10_reverseWordsOfString_oneWord();
+    test_task10_reverseWordsOfString_twoWord();
+    test_task10_reverseWordsOfString_fewWord();
+}
+
 #define EMPTY_STRING 0
 #define NOT_FOUND_A_WORD_WITH_A 1
 #define FIRST_WORD_WITH_A 2
@@ -443,11 +450,271 @@ void test_task11_getWordBeforeFirstWordWithA() {
     test_task11_getWordBeforeFirstWordWithA_wordWithA();
 }
 
-void test_task10_reverseWordsOfString() {
-    test_task10_reverseWordsOfString_emptyString();
-    test_task10_reverseWordsOfString_oneWord();
-    test_task10_reverseWordsOfString_twoWord();
-    test_task10_reverseWordsOfString_fewWord();
+void wordDescriptorToString(wordDescriptor word, char *destination) {
+    for (; word.begin < word.end; word.begin++)
+        *(destination++) = *word.begin;
+
+    *destination = '\0';
+}
+
+void test_task12_getLastWordInFirstStringFromSecondString_emptyString() {
+    char s1[MAX_STRING_SIZE] = "";
+    char s2[MAX_STRING_SIZE] = "";
+
+    wordDescriptor word = task12_getLastWordInFirstStringFromSecondString(s1, s2);
+
+    assert(word.begin == 0 && word.end == 0);
+}
+
+void test_task12_getLastWordInFirstStringFromSecondString_noWords() {
+    char s1[MAX_STRING_SIZE] = "";
+    char s2[MAX_STRING_SIZE] = "kurapika";
+
+    wordDescriptor word = task12_getLastWordInFirstStringFromSecondString(s1, s2);
+
+    assert(word.begin == 0 && word.end == 0);
+}
+
+void test_task12_getLastWordInFirstStringFromSecondString_oneWordsMatches() {
+    char s1[MAX_STRING_SIZE] = "kurapika";
+    char s2[MAX_STRING_SIZE] = "kurapika kuruta best boy";
+
+    wordDescriptor word = task12_getLastWordInFirstStringFromSecondString(s1, s2);
+
+    char s[MAX_STRING_SIZE];
+
+    wordDescriptorToString(word, s);
+
+    char expectation[MAX_STRING_SIZE] = "kurapika";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task12_getLastWordInFirstStringFromSecondString_fewWordsMatches() {
+    char s1[MAX_STRING_SIZE] = "kurapika kuruta best boy";
+    char s2[MAX_STRING_SIZE] = "kurapika kuruta best boy";
+
+    wordDescriptor word = task12_getLastWordInFirstStringFromSecondString(s1, s2);
+
+    char s[MAX_STRING_SIZE];
+
+    wordDescriptorToString(word, s);
+
+    char expectation[MAX_STRING_SIZE] = "boy";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task12_getLastWordInFirstStringFromSecondString() {
+    test_task12_getLastWordInFirstStringFromSecondString_emptyString();
+    test_task12_getLastWordInFirstStringFromSecondString_noWords();
+    test_task12_getLastWordInFirstStringFromSecondString_oneWordsMatches();
+    test_task12_getLastWordInFirstStringFromSecondString_fewWordsMatches();
+}
+
+
+void test_task13_isEqualWordsInString_emptyString() {
+    char s[MAX_STRING_SIZE] = "";
+
+    bool isEqualWords = task13_isEqualWordsInString(s);
+
+    assert(isEqualWords == 0);
+}
+
+void test_task13_isEqualWordsInString_noEqualWords() {
+    char s[MAX_STRING_SIZE] = "kurapika kuruta best boy";
+
+    bool isEqualWords = task13_isEqualWordsInString(s);
+
+    assert(isEqualWords == 0);
+}
+
+void test_task13_isEqualWordsInString_equalWords() {
+    char s[MAX_STRING_SIZE] = "kurapika kuruta best boy kuruta";
+
+    bool isEqualWords = task13_isEqualWordsInString(s);
+
+    assert(isEqualWords == 1);
+}
+
+void test_task13_isEqualWordsInString() {
+    test_task13_isEqualWordsInString_emptyString();
+    test_task13_isEqualWordsInString_noEqualWords();
+    test_task13_isEqualWordsInString_equalWords();
+}
+
+
+void test_task14_isLettersOfWordsInStringEqual_emptyString() {
+    char s[MAX_STRING_SIZE] = "";
+
+    assert(task14_isLettersOfWordsInStringEqual(s) == 0);
+}
+
+void test_task14_isLettersOfWordsInStringEqual_noLettersOfWordsEqual() {
+    char s[MAX_STRING_SIZE] = "kurapika kuruta best boy";
+
+    assert(task14_isLettersOfWordsInStringEqual(s) == 0);
+}
+
+void test_task14_isLettersOfWordsInStringEqual_letterOfWordsEqual() {
+    char s[MAX_STRING_SIZE] = "kurapika kuruta kuparika";
+
+    assert(task14_isLettersOfWordsInStringEqual(s) == 1);
+}
+
+void test_task14_isLettersOfWordsInStringEqual() {
+    test_task14_isLettersOfWordsInStringEqual_emptyString();
+    test_task14_isLettersOfWordsInStringEqual_noLettersOfWordsEqual();
+    test_task14_isLettersOfWordsInStringEqual_letterOfWordsEqual();
+}
+
+
+void test_task15_getStringFromWordsWhichDifferentFromLastWord_emptyString() {
+    char s1[MAX_STRING_SIZE] = "";
+
+    char *s = task15_getStringFromWordsWhichDifferentFromLastWord(s1);
+
+    char expectation[MAX_STRING_SIZE] = "";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task15_getStringFromWordsWhichDifferentFromLastWord_lastWordOnce() {
+    char s1[MAX_STRING_SIZE] = "kurapika kuruta best boy";
+
+    char *s = task15_getStringFromWordsWhichDifferentFromLastWord(s1);
+
+    char expectation[MAX_STRING_SIZE] = "kurapika kuruta best";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task15_getStringFromWordsWhichDifferentFromLastWord_lastWordTwice() {
+    char s1[MAX_STRING_SIZE] = "kurapika boy kuruta best boy";
+
+    char *s = task15_getStringFromWordsWhichDifferentFromLastWord(s1);
+
+    char expectation[MAX_STRING_SIZE] = "kurapika kuruta best";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task15_getStringFromWordsWhichDifferentFromLastWord_allWordsSame() {
+    char s1[MAX_STRING_SIZE] = "kurapika kurapika kurapika";
+
+    char *s = task15_getStringFromWordsWhichDifferentFromLastWord(s1);
+
+    char expectation[MAX_STRING_SIZE] = "";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task15_getStringFromWordsWhichDifferentFromLastWord() {
+    test_task15_getStringFromWordsWhichDifferentFromLastWord_emptyString();
+    test_task15_getStringFromWordsWhichDifferentFromLastWord_lastWordOnce();
+    test_task15_getStringFromWordsWhichDifferentFromLastWord_lastWordTwice();
+    test_task15_getStringFromWordsWhichDifferentFromLastWord_allWordsSame();
+}
+
+
+
+void test_task17_deleteWordsPalindromesFromString_emptyString() {
+    char s[MAX_STRING_SIZE] = "";
+
+    task17_deleteWordsPalindromesFromString(s);
+
+    char expectation[MAX_STRING_SIZE] = "";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task17_deleteWordsPalindromesFromString_noPalindrome() {
+    char s[MAX_STRING_SIZE] = "kurapika kuruta";
+
+    task17_deleteWordsPalindromesFromString(s);
+
+    char expectation[MAX_STRING_SIZE] = "kurapika kuruta";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task17_deleteWordsPalindromesFromString_onePalindrome() {
+    char s[MAX_STRING_SIZE] = "kurapikakiparuk kuruta";
+
+    task17_deleteWordsPalindromesFromString(s);
+
+    char expectation[MAX_STRING_SIZE] = "kuruta";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task17_deleteWordsPalindromesFromString_allPalindrome() {
+    char s[MAX_STRING_SIZE] = "kurapikakiparuk kurapikakiparuk kurapikakiparuk kurapikakiparuk";
+
+    task17_deleteWordsPalindromesFromString(s);
+
+    char expectation[MAX_STRING_SIZE] = "";
+
+    assert(strcmp_(s, expectation) == 0);
+}
+
+void test_task17_deleteWordsPalindromesFromString() {
+    test_task17_deleteWordsPalindromesFromString_emptyString();
+    test_task17_deleteWordsPalindromesFromString_noPalindrome();
+    test_task17_deleteWordsPalindromesFromString_onePalindrome();
+    test_task17_deleteWordsPalindromesFromString_allPalindrome();
+}
+
+void test_task18_addToLowerStringLastWordsOfHigherString_emptyString() {
+    char s1[MAX_STRING_SIZE] = "";
+    char s2[MAX_STRING_SIZE] = "";
+
+    task18_addToLowerStringLastWordsOfHigherString(s1, s2);
+
+    char expectation[MAX_STRING_SIZE] = "";
+
+    assert(strcmp_(s1, expectation) == 0 && strcmp_(s2, expectation) == 0);
+}
+
+void test_task18_addToLowerStringLastWordsOfHigherString_s1EqualsS2() {
+    char s1[MAX_STRING_SIZE] = "kurapika";
+    char s2[MAX_STRING_SIZE] = "kuruta";
+
+    task18_addToLowerStringLastWordsOfHigherString(s1, s2);
+
+    char expectation1[MAX_STRING_SIZE] = "kurapika";
+    char expectation2[MAX_STRING_SIZE] = "kuruta";
+
+    assert(strcmp_(s1, expectation1) == 0 && strcmp_(s2, expectation2) == 0);
+}
+
+void test_task18_addToLowerStringLastWordsOfHigherString_s1MoreS2() {
+    char s1[MAX_STRING_SIZE] = "kurapika kuruta";
+    char s2[MAX_STRING_SIZE] = "kurapika";
+
+    task18_addToLowerStringLastWordsOfHigherString(s1, s2);
+
+    char expectation[MAX_STRING_SIZE] = "kurapika kuruta";
+
+    assert(strcmp_(s2, expectation) == 0);
+}
+
+void test_task18_addToLowerStringLastWordsOfHigherString_s1LessS2() {
+    char s1[MAX_STRING_SIZE] = "kurapika";
+    char s2[MAX_STRING_SIZE] = "kurapika bestie";
+
+    task18_addToLowerStringLastWordsOfHigherString(s1, s2);
+
+    char expectation[MAX_STRING_SIZE] = "kurapika bestie";
+
+    assert(strcmp_(s1, expectation) == 0);
+}
+
+void test_task18_addToLowerStringLastWordsOfHigherString() {
+    test_task18_addToLowerStringLastWordsOfHigherString_emptyString();
+    test_task18_addToLowerStringLastWordsOfHigherString_s1EqualsS2();
+    test_task18_addToLowerStringLastWordsOfHigherString_s1MoreS2();
+    test_task18_addToLowerStringLastWordsOfHigherString_s1LessS2();
 }
 
 void test_tasks() {
@@ -461,4 +728,10 @@ void test_tasks() {
     test_task9_getStringWithAlternatingWords();
     test_task10_reverseWordsOfString();
     test_task11_getWordBeforeFirstWordWithA();
+    test_task12_getLastWordInFirstStringFromSecondString();
+    test_task13_isEqualWordsInString();
+    test_task14_isLettersOfWordsInStringEqual();
+    test_task15_getStringFromWordsWhichDifferentFromLastWord();
+    test_task17_deleteWordsPalindromesFromString();
+    test_task18_addToLowerStringLastWordsOfHigherString();
 }

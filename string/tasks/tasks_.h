@@ -38,4 +38,10 @@ bool task14_isLettersOfWordsInStringEqual(char *source);
 
 char *task15_getStringFromWordsWhichDifferentFromLastWord(char *source);
 
+wordDescriptor task16_getLastWordInFirstStringFromSecondString(char *s1, char *s2);
+
+void task17_deleteWordsPalindromesFromString(char *source);
+
+void task18_addToLowerStringLastWordsOfHigherString(char *s1, char *s2);
+
 #endif
